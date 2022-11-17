@@ -63,7 +63,6 @@ module.exports = {
 
   transactionCreate: async (req, res) => {
     let regexCar = new RegExp("mobil", "gi");
-    let regexMotor = new RegExp("Motor", "gi");
     let startDate = new Date(req.body.start);
     let endDate = new Date(req.body.end);
     const daysCar = 80000;
