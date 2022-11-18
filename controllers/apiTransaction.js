@@ -1,30 +1,6 @@
 const Vehicle = require("../models/Vehicle");
 
 module.exports = {
-  transactionRead: async (req, res) => {
-    try {
-      const vehicle = await Vehicle.find();
-
-      const result = vehicle.map((item) => {
-        return {
-          type: item.type,
-          name: item.name,
-          platNumber: item.platNumber,
-          price: `Rp.${item.price},00`,
-          start: item.start.toLocaleString(),
-          end: item.end.toLocaleString(),
-        };
-      });
-
-      res.status(200).json(result);
-    } catch (err) {
-      res.status(201).json({
-        success: false,
-        message: "something wrong",
-        err,
-      });
-    }
-  },
   transactionSearch: async (req, res) => {
     const { type, start, end, price } = req.query;
     try {
